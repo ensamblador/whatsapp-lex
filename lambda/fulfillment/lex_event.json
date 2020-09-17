@@ -1,0 +1,103 @@
+{
+    "messageVersion": "1.0",
+    "invocationSource": "FulfillmentCodeHook",
+    "userId": "whatsapp:56974769647",
+    "sessionAttributes": null,
+    "requestAttributes": {
+        "x-amz-lex:channel-id": "d1bdb5ff-f14d-475a-b905-361af28ea584",
+        "x-amz-lex:webhook-endpoint-url": "https://channels.lex.us-east-1.amazonaws.com/twilio-sms/webhook/d1bdb5ff-f14d-475a-b905-361af28ea584",
+        "x-amz-lex:accept-content-types": "PlainText",
+        "x-amz-lex:user-id": "AC59ca71b8460163a870250ec8d4c1c7fc",
+        "x-amz-lex:twilio-target-phone-number": "whatsapp:+14155238886",
+        "x-amz-lex:channel-name": "TwilioSandbox",
+        "x-amz-lex:channel-type": "Twilio-SMS"
+    },
+    "bot": {
+        "name": "ScheduleAppointment_esUS",
+        "alias": "agendar",
+        "version": "3"
+    },
+    "outputDialogMode": "Text",
+    "currentIntent": {
+        "name": "MakeAppointment_esUS",
+        "slots": {
+            "AppointmentType": "Limpieza",
+            "Time": "16:00",
+            "Date": "2020-09-21"
+        },
+        "slotDetails": {
+            "AppointmentType": {
+                "resolutions": [
+                    {
+                        "value": "limpieza"
+                    }
+                ],
+                "originalValue": "Limpieza"
+            },
+            "Time": {
+                "resolutions": [
+                    {
+                        "value": "16:00"
+                    }
+                ],
+                "originalValue": "4pm"
+            },
+            "Date": {
+                "resolutions": [
+                    {
+                        "value": "2020-09-21"
+                    }
+                ],
+                "originalValue": "Siguiente lunes"
+            }
+        },
+        "confirmationStatus": "Confirmed",
+        "nluIntentConfidenceScore": 1.0
+    },
+    "alternativeIntents": [
+        {
+            "name": "AMAZON.FallbackIntent",
+            "slots": {},
+            "slotDetails": {},
+            "confirmationStatus": "null",
+            "nluIntentConfidenceScore": null
+        },
+        {
+            "name": "saludo_appointment",
+            "slots": {},
+            "slotDetails": {},
+            "confirmationStatus": "null",
+            "nluIntentConfidenceScore": 0.37
+        }
+    ],
+    "inputTranscript": "Si",
+    "recentIntentSummaryView": [
+        {
+            "intentName": "MakeAppointment_esUS",
+            "checkpointLabel": null,
+            "slots": {
+                "AppointmentType": "Limpieza",
+                "Time": "16:00",
+                "Date": "2020-09-21"
+            },
+            "confirmationStatus": "null",
+            "dialogActionType": "ConfirmIntent",
+            "fulfillmentState": null,
+            "slotToElicit": null
+        },
+        {
+            "intentName": "saludo_appointment",
+            "checkpointLabel": null,
+            "slots": {},
+            "confirmationStatus": "null",
+            "dialogActionType": "Close",
+            "fulfillmentState": "Fulfilled",
+            "slotToElicit": null
+        }
+    ],
+    "sentimentResponse": {
+        "sentimentLabel": "NEUTRAL",
+        "sentimentScore": "{Positive: 0.021219973,Negative: 0.0011995129,Neutral: 0.9772528,Mixed: 3.277227E-4}"
+    },
+    "kendraResponse": null
+}
