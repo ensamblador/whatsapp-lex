@@ -133,3 +133,8 @@ Adicionalmente como parte del despliegue podemos acceder a la url que muestra la
 Esta página se actualiza cada 10s y nos muestra las citas agendadas por Whatsapp.
 
 !["lex 1"](img/cdk2.jpg)
+
+
+Enjoy!
+
+Fin.
