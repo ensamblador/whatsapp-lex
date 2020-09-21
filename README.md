@@ -1,4 +1,4 @@
-# Intro
+# Integraciónde Amazon Lex Bots con Whatsapp
 
 
 
@@ -6,7 +6,10 @@
 
 ---
 
-## Instrucciones para despliegue
+# Instrucciones para despliegue
+
+<br>
+<br><br>
 
 En este repositorio vamos a desplegar  una funcion lambda que recibe las solicitudes de agendas de un bot de Amazon Lex y las inserta en una base de datos.
 
@@ -14,7 +17,11 @@ Una aplicación real deberá validar lógicas de negocio por ejemplo: deberá va
 
 Además vamos a generar una cuenta Twilio y un Bot de Amazon Lex para recibir las solicitudes de agendamiento de clientes mediante Whatsapp.
 ___
-## Paso 1: Backend de Agendamiento
+<br>
+
+# Paso 1: Backend de Agendamiento
+---
+<br>
 
 ```zsh 
 git clone https://github.com/ensamblador/whatsapp-lex.git
@@ -62,8 +69,11 @@ cdk destroy
 
 
 ___
-##  Paso 2: Sandbox de Whatsapp Twilio
+<br><br><br>
 
+#  Paso 2: Sandbox de Whatsapp Twilio
+---
+<br>
 Genere una cuenta de twilio gratuita para acceder al Sandbox de Whatsapp 
 https://www.youtube.com/watch?v=O2PB6o2E8aA
 
@@ -80,9 +90,11 @@ En este punto copie las __ACCOUNT SID__ y __AUTH TOKEN__ para ser utilizados en 
 
 https://www.twilio.com/console
 
+<br><br><br>
 
-##  Paso 3: Amazon Lex y Bot de Agendamiento 
-
+#  Paso 3: Amazon Lex y Bot de Agendamiento 
+---
+<br><br>
 En este paso combinamos todo, primero partimos accediendo al bot de agendamiento generado en el despliegue, (aunque puede ser el bot template o uno personal). No entraremos en detalles de como hacer un bot, dejamos una guía de como implementarlo en la consola de amazon lex https://docs.aws.amazon.com/es_es/lex/latest/dg/gs-bp-create-bot.html
 
 Accedemos a la consola lex: https://console.aws.amazon.com/lex/home
@@ -109,8 +121,10 @@ Observamos que en el caso de la completitud de la intención ya está configurad
 
 !["lex 1"](img/lex3.jpg)
 
-
-##  Paso 5 : Integrar con Twilio
+<br><br><br>
+#  Paso 4 : Integrar con Twilio
+---
+<br><br>
 
 Una vez publicdo el bot, en la pestaña channels -> Twilio SMS configuramos un nuevo canal utilizando Account SID y Auth Token de Twilio:
 
@@ -127,7 +141,10 @@ Y lo pegamos en la url a llamar cuando llegue un mensaje:
 
 Guardamos en twilio y ya está listo ahora probemos.
 
-## Pruebas
+<br><br><br>
+# Pruebas
+---
+<br>
 
 Para probar el bot de agendamiento agregamos como contacto el número asignado por twilio y enviamos el mensaje de Opt-in, una vez enrolado ya estamos listos para utilizar:
 
@@ -143,5 +160,14 @@ Esta página se actualiza cada 10s y nos muestra las citas agendadas por Whatsap
 
 
 Enjoy!
+
+<br><br><br>
+## Limpieza
+---
+Para eliminar los recursos generados basta con ejecutar en la carpeta del proyecto (cli)
+
+```
+cdk destroy
+```
 
 Fin.
