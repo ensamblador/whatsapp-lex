@@ -55,6 +55,10 @@ def save_appointment(event):
 
     request_attributes = event["requestAttributes"]
 
+    if request_attributes is None:
+       request_attributes =  {"x-amz-lex:twilio-target-phone-number": "none :console"}
+       event['userId'] = 'console:'+event['userId']
+        
     user_id = event["userId"].split(":")
     target_id = request_attributes["x-amz-lex:twilio-target-phone-number"].split(":")
 

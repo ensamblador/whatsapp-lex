@@ -1,0 +1,72 @@
+{
+    "messageVersion": "1.0",
+    "invocationSource": "FulfillmentCodeHook",
+    "userId": "ez5vf9ehodx8r2cmpo0v2ofithl9fh9g",
+    "sessionAttributes": {},
+    "requestAttributes": null,
+    "bot": {
+        "name": "ScheduleAppointment_esUS_A",
+        "alias": "$LATEST",
+        "version": "$LATEST"
+    },
+    "outputDialogMode": "Text",
+    "currentIntent": {
+        "name": "MakeAppointment_esUS",
+        "slots": {
+            "AppointmentType": "blanqueamiento",
+            "Time": "11:00",
+            "Date": "2020-09-21"
+        },
+        "slotDetails": {
+            "AppointmentType": {
+                "resolutions": [
+                    {
+                        "value": "blanqueamiento"
+                    }
+                ],
+                "originalValue": "blanqueamiento"
+            },
+            "Time": {
+                "resolutions": [],
+                "originalValue": "11am"
+            },
+            "Date": {
+                "resolutions": [],
+                "originalValue": "tomorrow"
+            }
+        },
+        "confirmationStatus": "Confirmed",
+        "nluIntentConfidenceScore": null
+    },
+    "alternativeIntents": [],
+    "inputTranscript": "yes",
+    "recentIntentSummaryView": [
+        {
+            "intentName": "MakeAppointment_esUS",
+            "checkpointLabel": null,
+            "slots": {
+                "AppointmentType": "blanqueamiento",
+                "Time": "11:00",
+                "Date": "2020-09-21"
+            },
+            "confirmationStatus": "null",
+            "dialogActionType": "ConfirmIntent",
+            "fulfillmentState": null,
+            "slotToElicit": null
+        },
+        {
+            "intentName": "saludo_appointment",
+            "checkpointLabel": null,
+            "slots": {},
+            "confirmationStatus": "null",
+            "dialogActionType": "Close",
+            "fulfillmentState": "Fulfilled",
+            "slotToElicit": null
+        }
+    ],
+    "sentimentResponse": {
+        "sentimentLabel": "POSITIVE",
+        "sentimentScore": "{Positive: 0.5321425,Negative: 0.015753245,Neutral: 0.45189878,Mixed: 2.0541479E-4}"
+    },
+    "kendraResponse": null
+}

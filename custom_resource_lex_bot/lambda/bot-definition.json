@@ -1,0 +1,195 @@
+{
+  "metadata": {
+    "schemaVersion": "1.0",
+    "importType": "LEX",
+    "importFormat": "JSON"
+  },
+  "resource": {
+    "name": "ScheduleAppointment_esUS_A",
+    "version": "4",
+    "intents": [
+      {
+        "description": "Intención de agendar una cita con el dentista",
+        "rejectionStatement": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Bien, no voy a programar la cita."
+            }
+          ]
+        },
+        "name": "MakeAppointment_esUS",
+        "version": "4",
+        "fulfillmentActivity": {
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:844626608976:function:whatsapp-lex-FULLFILMENTB9BB5721-UN1TKD49K7ZB",
+            "messageVersion": "1.0"
+          },
+          "type": "CodeHook"
+        },
+        "sampleUtterances": [
+          "Me gustaría agendar una cita",
+          "Agendar una cita",
+          "Agendar una cita para {AppointmentType}"
+        ],
+        "slots": [
+          {
+            "sampleUtterances": [
+              "Me gustaría pedir una cita para {AppointmentType}"
+            ],
+            "slotType": "AppointmentTypeValue_esUS",
+            "slotTypeVersion": "1",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "¿Qué tipo de cita le gustaría programar (tratamiento de conducto, limpieza o blanquemiento)?"
+                }
+              ],
+              "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[]}",
+              "maxAttempts": 3
+            },
+            "priority": 1,
+            "name": "AppointmentType",
+            "description": "El tipo de cita a programar"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.DATE",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "¿Para qué fecha quiere programar la cita?"
+                },
+                {
+                  "contentType": "PlainText",
+                  "content": "¿Para qué fecha quiere programar la cita para {AppointmentType}?"
+                },
+                {
+                  "contentType": "PlainText",
+                  "content": "¿A las {Time} de qué día?"
+                },
+                {
+                  "contentType": "PlainText",
+                  "content": "Una cita para {AppointmentType} demorará aproximadamente [DuracionEstimada] minutos. ¿Qué día le queda mejor?"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 2,
+            "name": "Date",
+            "description": "La fecha de la cita a programar"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.TIME",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "¿Para qué hora quiere programar la cita?"
+                },
+                {
+                  "contentType": "PlainText",
+                  "content": "¿Para qué hora quiere programar la cita para {AppointmentType}?"
+                },
+                {
+                  "contentType": "PlainText",
+                  "content": "¿A qué hora el {Date}?"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 3,
+            "name": "Time",
+            "description": "La hora de la cita a programar"
+          }
+        ],
+        "confirmationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "La hora {Time} está disponible, ¿quiere que confirme su cita? (yes/no)"
+            },
+            {
+              "contentType": "PlainText",
+              "content": "La hora [Horaenformato] está disponible, ¿quiere que confirme su cita para {AppointmentType} (yes/no)?"
+            }
+          ],
+          "maxAttempts": 2
+        }
+      },
+      {
+        "name": "saludo_appointment",
+        "version": "1",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "hola",
+          "buenos dias",
+          "ayuda"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "PlainText",
+              "content": "Hola. Yo te ayudaré a agendar una hora disponible de Dentista si me dices:  \"agendar una cita\""
+            }
+          ]
+        }
+      }
+    ],
+    "slotTypes": [
+      {
+        "description": "El tipo de cita a programar con el dentista",
+        "name": "AppointmentTypeValue_esUS",
+        "version": "1",
+        "enumerationValues": [
+          {
+            "value": "tratamiento de conducto"
+          },
+          {
+            "value": "blanqueamiento"
+          },
+          {
+            "value": "limpieza"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      }
+    ],
+    "voiceId": "0",
+    "childDirected": false,
+    "locale": "en-US",
+    "idleSessionTTLInSeconds": 600,
+    "clarificationPrompt": {
+      "messages": [
+        {
+          "contentType": "PlainText",
+          "content": "No lo entendí, ¿qué le gustaría que haga?"
+        }
+      ],
+      "maxAttempts": 2
+    },
+    "abortStatement": {
+      "messages": [
+        {
+          "contentType": "PlainText",
+          "content": "Disculpe, no puedo ayudarlo en este momento"
+        }
+      ]
+    },
+    "detectSentiment": true,
+    "enableModelImprovements": true
+  }
+}

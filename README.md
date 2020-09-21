@@ -8,7 +8,7 @@
 
 ## Instrucciones para despliegue
 
-En este repositorio vamos a desplegar  una funcion lambda que recibe las solicitudes de agendas y las inserta en una base de datos.
+En este repositorio vamos a desplegar  una funcion lambda que recibe las solicitudes de agendas de un bot de Amazon Lex y las inserta en una base de datos.
 
 Una aplicación real deberá validar lógicas de negocio por ejemplo: deberá validar que la agenda esté disponible o manejar también autorizaciones de pacientes validando el número telefónico por ejemplo. 
 
@@ -83,11 +83,11 @@ https://www.twilio.com/console
 
 ##  Paso 3: Amazon Lex y Bot de Agendamiento 
 
-En este paso combinamos todo, primero partimos generando un simple bot de agendamiento, puede ser el bot template o uno custom. No entraremos en detalles de como hacer un bot, dejamos una guía de como implementarlo en la consola de amazon lex https://docs.aws.amazon.com/es_es/lex/latest/dg/gs-bp-create-bot.html
+En este paso combinamos todo, primero partimos accediendo al bot de agendamiento generado en el despliegue, (aunque puede ser el bot template o uno personal). No entraremos en detalles de como hacer un bot, dejamos una guía de como implementarlo en la consola de amazon lex https://docs.aws.amazon.com/es_es/lex/latest/dg/gs-bp-create-bot.html
 
-!["lex 1"](img/lex2.jpg)
+Accedemos a la consola lex: https://console.aws.amazon.com/lex/home
 
-Para el caso el bot deberá ser capaz de recopilar la información del usuario para la agenda:
+Para el caso, el bot deberá ser capaz de recopilar la información del usuario para la agenda:
 
 * ​AppointmentType : Tipo de agenda de consulta médica.
 * Date: Fecha de agenda de consulta médica
@@ -95,9 +95,7 @@ Para el caso el bot deberá ser capaz de recopilar la información del usuario p
 
 !["lex 1"](img/lex1.jpg)
 
-
-##  Paso 4: Integrar Backend de Agendamiento
-Para eso debemos configurar Lex para que utilice la lambda generada en el paso 1
+Observamos que en el caso de la completitud de la intención ya está configurada la función lambda que responderá el resultado del agendamiento.
 
 !["lex 1"](img/lex3.jpg)
 
