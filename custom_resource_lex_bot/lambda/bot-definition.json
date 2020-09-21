@@ -189,7 +189,7 @@
         }
       ]
     },
-    "detectSentiment": true,
+    "detectSentiment": false,
     "enableModelImprovements": true
   }
 }

@@ -95,11 +95,20 @@ Para el caso, el bot deberá ser capaz de recopilar la información del usuario 
 
 !["lex 1"](img/lex1.jpg)
 
+
+Cuando accedamos al bot deberá estar en proceso de finalización de "Build", una vez que termine, veremos este mensaje:
+
+!["lex 1"](img/lex_build.jpg)
+
+y luego estará listo para publicar una versión:
+
+!["lex 1"](img/lex_publish.jpg)
+
+
 Observamos que en el caso de la completitud de la intención ya está configurada la función lambda que responderá el resultado del agendamiento.
 
 !["lex 1"](img/lex3.jpg)
 
-Después de esto haga click en __Build__ y luego __Publish__ para publicar el bot.
 
 ##  Paso 5 : Integrar con Twilio
 

@@ -31,3 +31,29 @@ res['intents'][0]['slots']
 # %%
 res['slotTypes']
 # %%
+import boto3
+# %%
+client = boto3.client('lex-models')
+
+# %%
+res = client.response = client.delete_bot(
+    name='ScheduleAppointment_esUS'
+)
+
+# %%
+res
+# %%
+response = client.get_bot_aliases(
+    botName='ScheduleAppointment_esUS'
+)
+# %%
+response
+
+# %%
+response = client.get_bot_channel_associations(
+    botName='ScheduleAppointment_esUS',
+    botAlias='agendar'
+)
+# %%
+response['botChannelAssociations']
+# %%

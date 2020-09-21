@@ -59,6 +59,15 @@ def on_delete(event):
   
   client = boto3.client('lex-models')
   
+  aliases = client.get_bot_aliases(
+    botName=bot_name
+  )
+
+  for alias in aliases['BotAliases']:
+    channels = client.get_bot_channel_associations(botName=bot_name,botAlias=alias['name'])
+    for channel in channels['botChannelAssociations']:
+      client.delete_bot_channel_association( name=channel['name'], botName=bot_name,botAlias=alias['name'])
+    client.delete_bot_alias(name=alias['name'],botName=bot_name)
   delete_bot = client.delete_bot(name=bot_name)
   print(delete_bot)
   #for intent in intents:
