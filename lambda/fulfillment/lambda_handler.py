@@ -74,7 +74,7 @@ def save_appointment(event):
     appointment_date = event["currentIntent"]["slots"]["Date"]
     appointment_time = event["currentIntent"]["slots"]["Time"]
     intent_name = event["currentIntent"]["name"]
-    sentiment = event["sentimentResponse"]["sentimentLabel"]
+    #sentiment = event["sentimentResponse"]["sentimentLabel"]
 
     appointment_info = {
         "request_time": request_time,
