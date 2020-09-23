@@ -116,11 +116,11 @@
           "messages": [
             {
               "contentType": "PlainText",
-              "content": "La hora {Time} está disponible, ¿quiere que confirme su cita? (yes/no)"
+              "content": "La hora {Time} está disponible, ¿quiere que confirme su cita? (si/no)"
             },
             {
               "contentType": "PlainText",
-              "content": "La hora [Horaenformato] está disponible, ¿quiere que confirme su cita para {AppointmentType} (yes/no)?"
+              "content": "La hora [Horaenformato] está disponible, ¿quiere que confirme su cita para {AppointmentType} (si/no)?"
             }
           ],
           "maxAttempts": 2

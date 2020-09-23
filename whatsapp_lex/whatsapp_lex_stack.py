@@ -13,7 +13,7 @@ from aws_cdk.core import Lazy
 from cdk_dynamo_table_viewer import TableViewer
 from custom_resource_lex_bot.lex_bot_custom_resource import LexBotResource as lexbot
 
-BOT_LANGUAGE = 'en-US' #'en-US'|'en-GB'|'de-DE'|'en-AU'
+BOT_LANGUAGE = 'es-US' #'en-US'|'en-GB'|'de-DE'|'en-AU'
 
 class WhatsappLexStack(core.Stack):
     def __init__(self, scope: core.Construct, id: str, **kwargs) -> None:
