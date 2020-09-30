@@ -12,12 +12,23 @@ from aws_cdk.core import Lazy
 
 from cdk_dynamo_table_viewer import TableViewer
 from custom_resource_lex_bot.lex_bot_custom_resource import LexBotResource as lexbot
+from api_cors.api_cors import api_cors_lambda
+
 
 BOT_LANGUAGE = 'es-US' #'en-US'|'en-GB'|'de-DE'|'en-AU'
 
 class WhatsappLexStack(core.Stack):
     def __init__(self, scope: core.Construct, id: str, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
+
+        twilio_lambda = _lambda.Function(self, "twilio", runtime=_lambda.Runtime.PYTHON_3_6,
+                                          handler="lambda_handler.main", timeout=core.Duration.seconds(20),
+                                          memory_size=128, code=_lambda.Code.asset("./lambda/twilio"),
+                                          description='Hool de integración con twilio')
+
+        twilio_lambda.add_to_role_policy(iam.PolicyStatement(actions=["lex:PostText", "lex:PostContent"],
+                                               resources=["*"]))
+        # TODO : agregar permiso para lex:PostText lex:PostContent
 
         # The code that defines your stack goes here
         fullfillment_lambda = _lambda.Function(
@@ -50,6 +61,8 @@ class WhatsappLexStack(core.Stack):
             table=appointments_table
         ) 
         
+
+        api = api_cors_lambda(self, "API", twilio_lambda)
 
         _lexbot = lexbot(self,"appointments-bot",f_lambda=fullfillment_lambda, bot_locale=BOT_LANGUAGE)
 

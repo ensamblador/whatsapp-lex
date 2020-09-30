@@ -26,7 +26,7 @@ def close(session_attributes, fulfillment_state, message):
 
 
 def dispatch(appointment, session_attributes):
-    resultado = "Su hora de {} con {} ha sido confirmada para {} a las {}\n\nDireccion: Andres Bello 1192 {}, Providencia".format(
+    resultado = "Su hora de {} con {} ha sido confirmada para {} a las {} Direccion: Andres Bello 1192 {}, Providencia".format(
         appointment["C_Tipo"],
         appointment["C_Esp"],
         appointment["C_Fecha"],
@@ -37,7 +37,7 @@ def dispatch(appointment, session_attributes):
     return close (
         session_attributes,
         "Fulfilled",
-        {"contentType": "PlainText", "content": resultado},
+        {"contentType": "CustomPayload", "content": resultado},
     )
 
 
@@ -101,7 +101,9 @@ def save_item_ddb(item):
 
 
 def main(event, context):
-    logger.info("## ENVIRONMENT VARIABLES\r" + json.dumps(dict(**os.environ)))
-    logger.info(event)
+    #logger.info("## ENVIRONMENT VARIABLES\r" + json.dumps(dict(**os.environ)))
+    print(event)
     appointment_info = save_appointment(event)
-    return dispatch(appointment_info, event['sessionAttributes'])
+    respon  =dispatch(appointment_info, event['sessionAttributes'])
+    print (respon)
+    return respon

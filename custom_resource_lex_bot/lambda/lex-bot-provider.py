@@ -2,7 +2,7 @@ import boto3
 import json
 import os
 from zipfile import ZipFile 
-
+import time
 
 def on_event(event, context):
   print(event)
@@ -70,14 +70,14 @@ def on_delete(event):
     client.delete_bot_alias(name=alias['name'],botName=bot_name)
   delete_bot = client.delete_bot(name=bot_name)
   print(delete_bot)
-  #for intent in intents:
-  #    print(client.delete_intent(name=intent['name']))
-      
-  #for slot_type in slot_types:
-  #    print(client.delete_slot_type(name=slot_type['name']))
-  
-  # ...
 
+  for intent in intents:
+    time.sleep(3)
+    print(client.delete_intent(name=intent['name']))
+      
+  for slot_type in slot_types:
+      print(client.delete_slot_type(name=slot_type['name']))
+  
 
 def is_complete(event, context):
   physical_id = event["PhysicalResourceId"]
@@ -97,6 +97,8 @@ def is_complete(event, context):
 
 
 def is_complete_create (event):
+
+
   physical_id = event["PhysicalResourceId"]
   client = boto3.client('lex-models')
 
@@ -118,6 +120,7 @@ def is_complete_create (event):
     del bot['lastUpdatedDate']
     del bot['status']
     del bot['version']
+    bot['detectSentiment'] = True
     put_bot_response = client.put_bot(**bot)
     if put_bot_response['status'] == 'FAILED':
       raise Exception(put_bot_response["failureReason"])
