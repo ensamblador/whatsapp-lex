@@ -91,24 +91,32 @@ Antes de continuar, asegúrese de haber realizado los pasos anteriores y confirm
 ### [Paso a Paso integrar con la Funcion Lambda ➡️ ](README_Step_by_Step_Integracion_Lambda.md)
 <br/><br/>
 
-## 2.5 Agregar la interfaz web (front end opcional)
+## _Opcional: Agregar la interfaz web_
 
 Nuestro Bot de agendamientos ya está listo y funcionando completamente, pero no cuenta con una interfaz web que permita interactuar directamente con el. En este paso opcional podemos generar una UI (user interface).
 
 ### [Paso a Paso Web UI ➡️ ](README_Step_by_Step_Web.md)
 <br/><br/>
 
-## 2.6 Utilizando Nuestro Bot con Whatsapp
+## 2.6 Integración con Whatsapp
 
 Acá vamos a combinar nuestro Bot con la plataforma de Mensajería WhatsAspp. Para ello utilizaremos un servicio externo Twilio que nos permite recibir y responder mensajes de whatsapp con Lex.
 
 ### [Paso a Paso integrar Whatsapp ➡️ ](README_Step_by_Step_Integracion_Whatsapp.md)
 <br/><br/>
 
-### 2.7 Análisis de Sentimiento (opcional)
+## _Opcional: Interactuando con notas de voz_
 
-### 2.7 Visualización de los datos (opcional)
+Nuestro bot tiene las capacidades de recibir voz, pero qué pasa cuando enviamos una nota de voz?
 
-## 3 Limpieza
+### [Uso de notas de voz de Whatsapp ➡️ ](README_Step_by_Step_Integracion_Whatsapp_Voz.md)
+<br/><br/>
+
+
+## Opcional: Análisis de Sentimiento (opcional)
+
+## Opcional: Visualización de los datos (opcional)
+
+# 3 Limpieza
 
 ## 4 Material adicional
