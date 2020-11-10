@@ -12,7 +12,7 @@ https://docs.aws.amazon.com/general/latest/gr/lex.html
 
 Para el proyecto utilizaremos el template de Schedule Appointment. En **Bot Name** utilizamos un nombre a elección. 
 
-<img src="img/lex_console_1.jpg" width="700">
+<img src="img/lex_console_1.jpg" width="600">
 
 
 * Para **Language** elegimos Spanish (US) 
@@ -20,8 +20,8 @@ Para el proyecto utilizaremos el template de Schedule Appointment. En **Bot Name
 * **COPPA** No
 
 
+<img src="img/lex_console_2.jpg" width="600">
 
-!["lex_console_1"](img/lex_console_2.jpg)
 
 Una vez configurado hacemos click en **Create** 
 
@@ -35,7 +35,9 @@ Los **Slot Types** son variables customizadas asociadas a la intención (por eje
 
 **Utterances** son las conversaciones que pueden activar la intención. Estas frases ya podrían incorporar slots dentro del mensaje que envía el usuario.
 
-!["lex_console_3"](img/lex_console_3.jpg)
+
+<img src="img/lex_console_3.jpg" width="800" align="middle">
+
 
 **Intent Slots** los slots que debe llenar el Bot para la completar la Intención. Pueden ser custom o Nativos. El prompt es la frase con la que el bot consulta el el valor del slot (_Para cuando quiere agendar?_ debería responder el slot _Date_).
 
