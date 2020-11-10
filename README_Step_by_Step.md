@@ -158,20 +158,36 @@ Amazon DynamoDB es un servicio de base de datos NoSQL totalmente administrado qu
 Luego de eso haga click en crear tabla. Sólo eso es necesario para crear una tabla 😀
 
 Si quiere profundizar acerca de las claves de partición puede consultar en la [documentación de DynamoDB](https://docs.aws.amazon.com/es_es/amazondynamodb/latest/developerguide/bp-partition-key-design.html).
-
+___
 ## **2.3 Función Lambda de Agendamiento**
 
 Con AWS Lambda, puede ejecutar código sin aprovisionar ni administrar servidores. Solo tiene que cargar el código y Lambda se encargará de todo lo necesario para ejecutar y escalar el código con alta disponibilidad. Esta función Lambda será la encargada de tomar el `Fulfillment`de Lex y convertirlo en una cita en la base de datos.
 
-Primero vamos a la [consola de AWS Lambda](https://console.aws.amazon.com/lambda) y creamos una nueva función. Utilizando **Crear desde cero**
+1. **Primero vamos a la [consola de AWS Lambda](https://console.aws.amazon.com/lambda) y creamos una nueva función.** 
+    * Utilizamos **Crear desde cero**
+    * Nombre de la funcion: **FulFillmentLambda**
+    * Tiempo de ejecución: **Python 3.6 o 3.7**
 
-* Nombre de la funcion: **FulFillmentLambda**
-* Tiempo de ejecución: **Python 3.6 o 3.7**
-
-Para el resto utilice la configuración por defecto.
+    Para el resto utilice la configuración por defecto y cree la nueva funcion.
 ![](img/Lambda_1.jpg)
 
+    <br/><br/>
+    Una vez generada, en la pestaña `configuración` vamos a configurar la Memoria, Timeout y Variables de entorno.
+![](img/Lambda_5.jpg)
 
+2. **Agregamos como variable de entorno `configuración > Variables de entorno`**
+![](img/Lambda_2.jpg)
+utilizamos:
+    * Clave: **APPOINTMENTS_TABLE**
+    * Valor: **agendamientos** (o el nombre que utilizó para crear la table en DynamoDB)
+![](img/Lambda_3.jpg)
+Click en **Guardar**
+ <br/><br/>
+2. **modificamos nuestra configuración de RAM Aprovisionada y timeout `configuración > Configuración básica`**
+    * Memoria: **256MB**
+    * Tiempo de espera: **20s**
+![](img/Lambda_4.jpg)
+Click en **Guardar**
 
 ### 2.3 Cumplimiento (Fulfillment) de la Intención.
 ### 2.4 Pruebas de Bot agendando.
