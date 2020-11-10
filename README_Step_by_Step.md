@@ -29,23 +29,23 @@ Los costos de la solución vienen dados por el uso de acuerdo a las transaccione
 
 **Ejemplo:**
 
-Supongamos el caso de nuestro Chat Bot intercambia 10 mensajes con el usuario para una agenda miento que realizamos 1000 conversaciones con 500 agendamientos al mes. Cada registro de agendamiento pesa 1 KB.
+Supongamos el caso de nuestro Chat Bot intercambia 10 mensajes con el usuario para intento de agendamiento que realizamos, durante el mes tenemos 1000 conversaciones y 500 agendamientos. Cada registro de agendamiento pesa 1 KB.
 
 **Lex:** 
-Mensajes  = 1000 x 10 = 10.000 
-Costo  = 10000 x 0.00075 = 7,5 USD
+* Mensajes  = 1000 x 10 = 10.000 
+* Costo  = 10000 x 0.00075 = 7,5 USD
 
 **Lambda:**
-Solicitudes: 500
-Costo Invocaciones = 500 / 1.000.000 x 0.2 USD = 0.0001 USD
-GB-Segundo = 500 x (100 milisegundos) x (256 MB)  =  500 x 0.1 x 0.25 = 12.5 GB-Segundo
-Costo por GB-Segundo = 12.5 x 0.0000166667 USD = 0.0002 USD
+* Solicitudes: 500
+* Costo Invocaciones = 500 / 1.000.000 x 0.2 USD = 0.0001 USD
+* GB-Segundo = 500 x (100 milisegundos) x (256 MB)  =  500 x 0.1 x 0.25 = 12.5 GB-Segundo
+* Costo por GB-Segundo = 12.5 x 0.0000166667 USD = 0.0002 USD
 
 **DynamoDB**
-Unidades de Escritura: 500 x 1 KB / 1 KB= 500 WCU
-Costo por escritura: 500 / 1.000.000 x 1.25 = 0.000625
-Costo por almacenamiento: 500 KB / 1.000.000 x 0.25 = 0.000125 USD (adicional por cada mes)
-Costo por escritura: Depende de la cantidad de lecturas. Si se lee 5 veces el costo es 0.000625 USD.
+* Unidades de Escritura: 500 x 1 KB / 1 KB= 500 WCU
+* Costo por escritura: 500 / 1.000.000 x 1.25 = 0.000625
+* Costo por almacenamiento: 500 KB / 1.000.000 x 0.25 = 0.000125 USD (adicional por cada mes)
+* Costo por escritura: Depende de la cantidad de lecturas. Si se lee 5 veces el costo es 0.000625 USD.
 
 **Twilio**
 Los costos de twilio deben ser revisados en https://www.twilio.com/whatsapp/pricing/us
@@ -54,7 +54,7 @@ Al momento de la redacción de esta guía los costos de twilio son 0.005 USD por
 ___
 # 2. Despliegue de la solución
 
-## 2.1 Amazon Lex Chatbot (En español)
+## **2.1 Amazon Lex Chatbot (En español)**
 
 Amazon Lex es un servicio para crear interfaces de conversación con voz y texto. Ofrece las funcionalidades de deep learning como reconocimiento automático de voz para convertir voz en texto y tecnología de comprensión del lenguaje natural para reconocer la intención del texto. [Más información de Lex](https://aws.amazon.com/es/lex/)
 
@@ -87,13 +87,13 @@ ___
 
 Una vez que nuestro Bot está creado accedemos a él. Podemos ver en editor los **Intents** (Intenciones) es decir,  los distintos objetivos que puede buscar un usuario cuando contacta al bot (agendar, consultar agenda, cancelar agenda).
 
-Los **Slot Types** son variables customizadas asociadas a la intención (pot ejemplo en este caso Tipo de Consulta). Es una información provista por el usuario. El bot llena estos slots en las conversaciones. Nota los Slots que aparecen acá son sólo los de tipo "custom slots". Amazon Lex provee **Slots** ya construidos como Fecha, Hora, Lugares. Un listado completo lo encuentra acá https://docs.aws.amazon.com/lex/latest/dg/howitworks-builtins-slots.html  
+Los **Slot Types** son variables customizadas asociadas a la intención (por ejemplo en este caso Tipo de Consulta). Es una información provista por el usuario. El bot llena estos slots en las conversaciones. Nota: los Slots que aparecen acá son sólo los de tipo "custom slots". Amazon Lex provee **Slots** ya construidos como Fecha, Hora, Lugares. Un listado completo lo encuentra acá https://docs.aws.amazon.com/lex/latest/dg/howitworks-builtins-slots.html  
 
-**Utterances** son las conversaciones que pueden activar la intención. Estas frases ya podrían incorporar uno o varios slots. 
+**Utterances** son las conversaciones que pueden activar la intención. Estas frases ya podrían incorporar slots dentro del mensaje que envía el usuario.
 
 !["lex_console_3"](img/lex_console_3.jpg)
 
-**Intent Slots** los slots que debe llenar el Bot en la conversación. Pueden ser custom o Nativos. El prompt es la frase con la que el bot consulta el intent.
+**Intent Slots** los slots que debe llenar el Bot para la completar la Intención. Pueden ser custom o Nativos. El prompt es la frase con la que el bot consulta el el valor del slot (_Para cuando quiere agendar?_ debería responder el slot _Date_).
 
 Vemos que el template nos muestra un Intent por defecto llamado `MakeAppointment_esUS` vamos a editarlo (click en el botón edit al lado del nombre) y realizamos los siguientes cambios.
 
@@ -114,7 +114,7 @@ Agregamos en el prompt "(Tratamiento de condicto, Control, Limpieza)"
 !["lex_console_4"](img/lex_console_6.jpg)
 
 <br><br><br>
-1. **Creamos Otro Intent que nos salude ante cualquier y oriente al usuario**
+1. **Creamos Otro Intent que nos salude ante cualquier mensaje diferente y oriente al usuario**
 * En `Intents` le damos al signo (+) y luego `Create Intent`
 !["lex_console_4"](img/lex_console_7.jpg)
 <br><br><br>
@@ -142,15 +142,37 @@ Una vez que el bot está armado podemos acceder a la consola de pruebas, al lado
 
 !["lex_console_4"](img/lex_console_12.jpg)
 
-Cuando el Estado es `ReadyForFulFullment` significa que todos los Slots están completos y podemos proceder al agendamiento (no hemos llegado a eso aún, pero vamos ecaminados)
+Cuando el Estado es `ReadyForFulFullment` significa que todos los Slots están completos y podemos proceder al agendamiento (no hemos llegado a eso aún 😎)
+___
+## **2.2 La Base de Datos de Agendas**
 
-😎
+Amazon DynamoDB es un servicio de base de datos NoSQL totalmente administrado que ofrece un rendimiento rápido, confiable y escalable. Vamos a utilizar este servicio para crear una tabla donde almacenaremos las agendas. Como primer paso vamos a la [consola DynamoDB](http://console.aws.amazon.com/dynamodb)  y creamos una tabla. En el formulario de creación vamos a indicar
 
-### 2.2 La Base de Datos de Agendas
+* Nombre de la Tabla: **agendamientos**
+* Clave de Partición: **user_phone** tipo **String**
+* Clave de Ordebación: **request_time** tipo **String**
+* Configuración: **Configuración Predeterminada**
+
+!["lex_console_4"](img/dynamo_console_1.jpg)
+
+Luego de eso haga click en crear tabla. Sólo eso es necesario para crear una tabla 😀
+
+Si quiere profundizar acerca de las claves de partición puede consultar en la [documentación de DynamoDB](https://docs.aws.amazon.com/es_es/amazondynamodb/latest/developerguide/bp-partition-key-design.html).
+
+## **2.3 Función Lambda de Agendamiento**
+
+Con AWS Lambda, puede ejecutar código sin aprovisionar ni administrar servidores. Solo tiene que cargar el código y Lambda se encargará de todo lo necesario para ejecutar y escalar el código con alta disponibilidad. Esta función Lambda será la encargada de tomar el `Fulfillment`de Lex y convertirlo en una cita en la base de datos.
+
+Primero vamos a la [consola de AWS Lambda](https://console.aws.amazon.com/lambda) y creamos una nueva función. Utilizando **Crear desde cero**
+
+* Nombre de la funcion: **FulFillmentLambda**
+* Tiempo de ejecución: **Python 3.6 o 3.7**
+
+Para el resto utilice la configuración por defecto.
+![](img/Lambda_1.jpg)
 
 
 
-### 2.2 Función Lambda de Agendamiento
 ### 2.3 Cumplimiento (Fulfillment) de la Intención.
 ### 2.4 Pruebas de Bot agendando.
 
