@@ -20,7 +20,7 @@ Para el proyecto utilizaremos el template de Schedule Appointment. En **Bot Name
 * **COPPA** No
 
 
-<img src="img/lex_console_2.jpg" width="600">
+<img src="img/lex_console_2.jpg" width="600" style="margin:0 auto;">
 
 
 Una vez configurado hacemos click en **Create** 
