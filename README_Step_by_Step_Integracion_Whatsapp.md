@@ -24,9 +24,9 @@ Una vez activado el sandbox vaya a [consola twilio](https://www.twilio.com/conso
 
 Volviendo a la [consola de Lex](https://console.aws.amazon.com/lex/home) realizamos la publicación de una una versió. Esto nos permite utilizar un endpoint para los canales de integración (en este caso twilio)
 
-!["lex 1"](img/lex_9.jpg)
+!["lex 1"](img/Lex_9.jpg)
 
-!["lex 1"](img/lex_11.jpg)
+!["lex 1"](img/Lex_11.jpg)
 
 
 Una vez publicdo el bot, en la pestaña channels -> Twilio SMS configuramos un nuevo canal:
@@ -34,11 +34,11 @@ Una vez publicdo el bot, en la pestaña channels -> Twilio SMS configuramos un n
 * Account SID: **ACCOUNT SID**  de twilio
 * Authentication Token: **AUTH TOKEN** de twilio
 
-!["lex 1"](img/lex_12.jpg)
+!["lex 1"](img/Lex_12.jpg)
 
 Cuando lo activamos nos genera un **Endpoint URL** de invocación, lo copiamos para incorporarlo en la consola de twilio.
 
-!["lex 1"](img/lex_13.jpg)
+!["lex 1"](img/Lex_13.jpg)
 
 Y lo pegamos en la url a llamar cuando llegue un mensaje:
 
