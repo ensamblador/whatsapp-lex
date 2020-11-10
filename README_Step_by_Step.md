@@ -45,7 +45,7 @@ Supongamos el caso de nuestro Chat Bot intercambia 10 mensajes con el usuario pa
 * Unidades de Escritura: 500 x 1 KB / 1 KB= 500 WCU
 * Costo por escritura: 500 / 1.000.000 x 1.25 = 0.000625
 * Costo por almacenamiento: 500 KB / 1.000.000 x 0.25 = 0.000125 USD (adicional por cada mes)
-* Costo por escritura: Depende de la cantidad de lecturas. Si se lee 5 veces el costo es 0.000625 USD.
+* Costo por lectura: Depende de la cantidad de lecturas. Si se lee 5 veces el costo es 0.000625 USD.
 
 **Twilio**
 Los costos de twilio deben ser revisados en https://www.twilio.com/whatsapp/pricing/us
