@@ -1,4 +1,4 @@
-# Integración de Lex con la función Lambda
+# Integración de Lex con notas de Voz de Whatsapp
 
 Antes de continuar, asegúrese de haber realizado los pasos anteriores y que la integración con Whatsapp está funcionando correctamente.
 

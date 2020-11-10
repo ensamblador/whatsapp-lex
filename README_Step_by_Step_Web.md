@@ -1,4 +1,4 @@
-# La Base de Datos DynamoDB para Agendas
+# Creación de una interfaz de usuario para interactuar con el Chatbot
 
 Nuestro Bot de agendamientos ya está listo y funcionando completamente, puede ser utilizado a través de integraciones nativas como Facebook, Twilio, Kik y Slack. No obstante, no cuenta con una interfaz web que permita interactuar directamente con el. Para esto vamos a utilizar un despliegue de un-click para levantar un website que interactúe con el Bot. Vaya al repositorio y siga las instrucciones para el despligue en la región donde se ecuentra su Bot.
 

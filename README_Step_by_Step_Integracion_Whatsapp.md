@@ -1,4 +1,4 @@
-# Integración de Lex con la función Lambda
+# Integración de Lex con mensajes de Whatsapp
 
 Antes de continuar, asegúrese de haber realizado los pasos anteriores y confirmar que todo funciona y que el boto está agendando correctamente. 
 
