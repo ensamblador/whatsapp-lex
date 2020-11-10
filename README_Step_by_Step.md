@@ -6,7 +6,7 @@ TO DO
 
 ## 1.1 Objetivo
 
-En este Workshow vamos a implemntar un Chabot usando Amazon Lex y lo vamos a integrar con la plataforma de mensajería instantánea WhatsApp. Esta integración se realizará a través de la plataforma (twilio) que nos permitirá recibir mensajes directamente desde la aplicación whatsapp (web o smartphone).
+En este Workshop vamos a implemntar un Chabot usando Amazon Lex y lo vamos a integrar con la plataforma de mensajería instantánea WhatsApp. Esta integración se realizará a través de la plataforma (twilio) que nos permitirá recibir mensajes directamente desde la aplicación whatsapp (web o smartphone).
 
 Se trata de un caso de uso para el agenda miento de horas al dentista, no obstante puede extenderse para cualquier tipo de interacción Con un asistente virtual, por ejemplo preguntas y respuestas frecuentes, información del estado de un caso de soporte, solicitud de información personalizada, ejecución de un procesamiento automático, etc.
 
