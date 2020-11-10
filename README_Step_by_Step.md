@@ -100,6 +100,8 @@ Nuestro Bot de agendamientos ya está listo y funcionando completamente, pero no
 
 ## 2.6 Utilizando Nuestro Bot con Whatsapp
 
+Acá vamos a combinar nuestro Bot con la plataforma de Mensajería WhatsAspp. Para ello utilizaremos un servicio externo Twilio que nos permite recibir y responder mensajes de whatsapp con Lex.
+
 ### [Paso a Paso integrar Whatsapp ➡️ ](README_Step_by_Step_Integracion_Whatsapp.md)
 <br/><br/>
 
