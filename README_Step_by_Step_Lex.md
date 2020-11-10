@@ -12,7 +12,7 @@ https://docs.aws.amazon.com/general/latest/gr/lex.html
 
 Para el proyecto utilizaremos el template de Schedule Appointment. En **Bot Name** utilizamos un nombre a elección. 
 
-!["lex_console_1"](img/lex_console_1.jpg)
+<img src="img/lex_console_1.jpg" width="700">
 
 
 * Para **Language** elegimos Spanish (US) 
@@ -91,4 +91,4 @@ Cuando el Estado es `ReadyForFulFullment` significa que todos los Slots están c
 <br/><br/>
 
 
-### **[Volver al proyecto ↩️ ](README_Step_by_Step.md)**
+### **[Volver al proyecto ↩️ ](README_Step_by_Step.md#21-amazon-lex-chatboten-español)**
