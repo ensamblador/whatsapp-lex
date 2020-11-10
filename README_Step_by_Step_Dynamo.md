@@ -7,7 +7,8 @@ Amazon DynamoDB es un servicio de base de datos NoSQL totalmente administrado qu
 * Clave de Ordebación: **request_time** tipo **String**
 * Configuración: **Configuración Predeterminada**
 
-!["lex_console_4"](img/dynamo_console_1.jpg)
+
+<img src="img/dynamo_console_1.jpg" width="600">
 
 Luego de eso haga click en crear tabla. Sólo eso es necesario para crear una tabla 😀
 
@@ -15,4 +16,4 @@ Si quiere profundizar acerca de las claves de partición puede consultar en la [
 
 
 
-### **[Volver al proyecto ↩️ ](README_Step_by_Step.md)**
+### **[Volver al proyecto ↩️ ](README_Step_by_Step.md#22-la-base-de-datos-de-agendas)**

@@ -47,6 +47,7 @@ Vemos que el template nos muestra un Intent por defecto llamado `MakeAppointment
 <img src="img/lex_console_4.jpg" width="600">
 
 <br><br><br>
+
 1. **En `Sample Utterances` agregaremos un par de frases que incluyan otros slots**
 De esta forma permitimos que en un solo mensaje podamos capturar las tres variables (los slots se definen en la frase usando paréntesis `{}`)
 <img src="img/lex_console_5.jpg" width="600">
@@ -56,36 +57,35 @@ De esta forma permitimos que en un solo mensaje podamos capturar las tres variab
 1. **En el Slot de de `AppointmentType`vamos a agregar un hint para que el usuario conozca las opciones de Citas**
 <img src="img/lex_console_14.jpg" width="600">
 
-    Agregamos en el prompt "(Tratamiento de condicto, Control, Limpieza)"
-    <img src="img/lex_console_13.jpg" width="400">
+* Agregamos en el prompt "(Tratamiento de conducto, Control, Limpieza)"
+<img src="img/lex_console_13.jpg" width="400">
+
+
+1. Después de hacer estas modificaciones Guardamos nuestro Intent.**
+<img src="img/lex_console_6.jpg" width="500">
+
 
 <br><br><br>
-1. **Después de hacer estas modificaciones Guardamos nuestro Intent.**
 
-    <img src="img/lex_console_6.jpg" width="500">
-
-
-<br><br><br>
 1. **Creamos Otro Intent que nos salude ante cualquier mensaje diferente y oriente al usuario**
-* En `Intents` le damos al signo (+) y luego `Create Intent`
+* En `Intents` le damos al signo (+) y luego `Create Intent`.<br>
+<img src="img/lex_console_7.jpg" width="400">
 
-    <img src="img/lex_console_7.jpg" width="400">
+<br>
 
-<br><br><br>
-* Le damos un nombre y lo agregamos al bot.
+* Le damos un nombre y lo agregamos al bot.<br>
+<img src="img/lex_console_8.jpg" width="400">
 
-    <img src="img/lex_console_8.jpg" width="400">
+<br>
 
-<br><br><br>
 * Para que este intent se active vamos a configurar las siguientes frases en `Utterances`
 <img src="img/lex_console_9.jpg" width="500">
 
-<br><br><br>
-* Luego agregamos la respuesta que va a orientar a nuestro usuario a agendar.
+<br><br>
 
-    **_Hola. Yo te ayudaré a agendar una hora disponible de Dentista si me dices: "agendar una cita"_**
-
-    <img src="img/lex_console_10.jpg" width="600">
+* Luego agregamos la respuesta que va a orientar a nuestro usuario a agendar.<br><br>
+**_Hola. Yo te ayudaré a agendar una hora disponible de Dentista si me dices: "agendar una cita"_**
+<img src="img/lex_console_10.jpg" width="600">
 
 
 * Finalmente guardamos el nuevo intent y le damos al boton **Build**
