@@ -51,154 +51,57 @@ Supongamos el caso de nuestro Chat Bot intercambia 10 mensajes con el usuario pa
 Los costos de twilio deben ser revisados en https://www.twilio.com/whatsapp/pricing/us
 Al momento de la redacción de esta guía los costos de twilio son 0.005 USD por mensaje.
 
+<br/><br/>
 ___
+<br/><br/>
+
+
 # 2. Despliegue de la solución
 
-## **2.1 Amazon Lex Chatbot (En español)**
+## 2.1 Amazon Lex Chatbot (En español)
 
 Amazon Lex es un servicio para crear interfaces de conversación con voz y texto. Ofrece las funcionalidades de deep learning como reconocimiento automático de voz para convertir voz en texto y tecnología de comprensión del lenguaje natural para reconocer la intención del texto. [Más información de Lex](https://aws.amazon.com/es/lex/)
 
-Para crear un nuevo Chatbot vamos a la Consola de Lex en AWS (https://console.aws.amazon.com/lex).
+### [Paso a paso armar el bot ➡️ ](README_Step_by_Step_Lex.md)
 
-Si no ve la consola de Amazon Lex, cambie a una las regiones soportadas 
-https://docs.aws.amazon.com/general/latest/gr/lex.html 
+<br/><br/>
 
-* Si es la primera vez que utiliza Lex en esta región haga click en **Get Started**.
-* Si ya cuenta con un bot, haga click en **Create** en el menú **Bots**
+## 2.2 La Base de Datos de Agendas
 
-Para el proyecto utilizaremos el template de Schedule Appointment. En **Bot Name** utilizamos un nombre a elección. 
+Amazon DynamoDB es un servicio de base de datos NoSQL totalmente administrado que ofrece un rendimiento rápido, confiable y escalable. Vamos a utilizar este servicio para crear una tabla donde almacenaremos las agendas. 
 
-!["lex_console_1"](img/lex_console_1.jpg)
+### [Tabla DynamoDB de Agendas ➡️ ](README_Step_by_Step_Dynamo.md)
 
-
-* Para **Language** elegimos Spanish (US) 
-* **Sentiment analysis** No
-* **COPPA** No
+<br/><br/>
 
 
-
-!["lex_console_1"](img/lex_console_2.jpg)
-
-Una vez configurado hacemos click en **Create** 
-
-Nuestro Bot Base está listo. 
-___
-## 2.2 Intents, Utterances y Slots.
-
-Una vez que nuestro Bot está creado accedemos a él. Podemos ver en editor los **Intents** (Intenciones) es decir,  los distintos objetivos que puede buscar un usuario cuando contacta al bot (agendar, consultar agenda, cancelar agenda).
-
-Los **Slot Types** son variables customizadas asociadas a la intención (por ejemplo en este caso Tipo de Consulta). Es una información provista por el usuario. El bot llena estos slots en las conversaciones. Nota: los Slots que aparecen acá son sólo los de tipo "custom slots". Amazon Lex provee **Slots** ya construidos como Fecha, Hora, Lugares. Un listado completo lo encuentra acá https://docs.aws.amazon.com/lex/latest/dg/howitworks-builtins-slots.html  
-
-**Utterances** son las conversaciones que pueden activar la intención. Estas frases ya podrían incorporar slots dentro del mensaje que envía el usuario.
-
-!["lex_console_3"](img/lex_console_3.jpg)
-
-**Intent Slots** los slots que debe llenar el Bot para la completar la Intención. Pueden ser custom o Nativos. El prompt es la frase con la que el bot consulta el el valor del slot (_Para cuando quiere agendar?_ debería responder el slot _Date_).
-
-Vemos que el template nos muestra un Intent por defecto llamado `MakeAppointment_esUS` vamos a editarlo (click en el botón edit al lado del nombre) y realizamos los siguientes cambios.
-
-1. **En fulfillment indicamos que responda los parámetros al cliente.**
-!["lex_console_4"](img/lex_console_4.jpg)
-<br><br><br>
-1. **En `Sample Utterances` agregaremos un par de frases que incluyan otros slots**
-De esta forma permitimos que en un solo mensaje podamos capturar las tres variables (los slots se definen en la frase usando paréntesis `{}`)
-!["lex_console_4"](img/lex_console_5.jpg)
-<br><br><br>
-
-1. **En el Slot de de `AppointmentType`vamos a agregar un hint para que el usuario conozca las opciones de Citas**
-!["lex_console_4"](img/lex_console_14.jpg)
-Agregamos en el prompt "(Tratamiento de condicto, Control, Limpieza)"
-!["lex_console_4"](img/lex_console_13.jpg)
-<br><br><br>
-1. **Después de hacer estas modificaciones Guardamos nuestro Intent.**
-!["lex_console_4"](img/lex_console_6.jpg)
-
-<br><br><br>
-1. **Creamos Otro Intent que nos salude ante cualquier mensaje diferente y oriente al usuario**
-* En `Intents` le damos al signo (+) y luego `Create Intent`
-!["lex_console_4"](img/lex_console_7.jpg)
-<br><br><br>
-* Le damos un nombre y lo agregamos al bot.
-!["lex_console_4"](img/lex_console_8.jpg)
-<br><br><br>
-* Para que este intent se active vamos a configurar las siguientes frases en `Utterances`
-!["lex_console_4"](img/lex_console_9.jpg)
-<br><br><br>
-* Luego agregamos la respuesta que va a orientar a nuestro usuario a agendar.
-
-    **_Hola. Yo te ayudaré a agendar una hora disponible de Dentista si me dices: "agendar una cita"_**
-
-    !["lex_console_4"](img/lex_console_10.jpg)
-
-* Finalmente guardamos el nuevo intent y le damos al boton **Build**
-!["lex_console_4"](img/lex_console_11.jpg)
-
-Listo! nuestro bot ya puede saludar y ahora vamos a probarlo en la consola.
-
-___
-## 2.3 Pruebas de Bot
-
-Una vez que el bot está armado podemos acceder a la consola de pruebas, al lado derecho. Haga unas pruebas a ver si está respondiendo bien, en caso contrario revise los pasos anteriores nuevamente.
-
-!["lex_console_4"](img/lex_console_12.jpg)
-
-Cuando el Estado es `ReadyForFulFullment` significa que todos los Slots están completos y podemos proceder al agendamiento (no hemos llegado a eso aún 😎)
-___
-## **2.2 La Base de Datos de Agendas**
-
-Amazon DynamoDB es un servicio de base de datos NoSQL totalmente administrado que ofrece un rendimiento rápido, confiable y escalable. Vamos a utilizar este servicio para crear una tabla donde almacenaremos las agendas. Como primer paso vamos a la [consola DynamoDB](http://console.aws.amazon.com/dynamodb)  y creamos una tabla. En el formulario de creación vamos a indicar
-
-* Nombre de la Tabla: **agendamientos**
-* Clave de Partición: **user_phone** tipo **String**
-* Clave de Ordebación: **request_time** tipo **String**
-* Configuración: **Configuración Predeterminada**
-
-!["lex_console_4"](img/dynamo_console_1.jpg)
-
-Luego de eso haga click en crear tabla. Sólo eso es necesario para crear una tabla 😀
-
-Si quiere profundizar acerca de las claves de partición puede consultar en la [documentación de DynamoDB](https://docs.aws.amazon.com/es_es/amazondynamodb/latest/developerguide/bp-partition-key-design.html).
-___
-## **2.3 Función Lambda de Agendamiento**
+## 2.3 Función Lambda de Agendamiento
 
 Con AWS Lambda, puede ejecutar código sin aprovisionar ni administrar servidores. Solo tiene que cargar el código y Lambda se encargará de todo lo necesario para ejecutar y escalar el código con alta disponibilidad. Esta función Lambda será la encargada de tomar el `Fulfillment`de Lex y convertirlo en una cita en la base de datos.
 
-1. **Primero vamos a la [consola de AWS Lambda](https://console.aws.amazon.com/lambda) y creamos una nueva función.** 
-    * Utilizamos **Crear desde cero**
-    * Nombre de la funcion: **FulFillmentLambda**
-    * Tiempo de ejecución: **Python 3.6 o 3.7**
+### [Paso a Paso Funcion Lambda ➡️ ](README_Step_by_Step_Lambda.md)
 
-    Para el resto utilice la configuración por defecto y cree la nueva funcion.
-![](img/Lambda_1.jpg)
+<br/><br/>
 
-    <br/><br/>
-    Una vez generada, en la pestaña `configuración` vamos a configurar la Memoria, Timeout y Variables de entorno.
-![](img/Lambda_5.jpg)
 
-2. **Agregamos como variable de entorno `configuración > Variables de entorno`**
-![](img/Lambda_2.jpg)
-utilizamos:
-    * Clave: **APPOINTMENTS_TABLE**
-    * Valor: **agendamientos** (o el nombre que utilizó para crear la table en DynamoDB)
-![](img/Lambda_3.jpg)
-Click en **Guardar**
- <br/><br/>
-2. **modificamos nuestra configuración de RAM Aprovisionada y timeout `configuración > Configuración básica`**
-    * Memoria: **256MB**
-    * Tiempo de espera: **20s**
-![](img/Lambda_4.jpg)
-Click en **Guardar**
+## 2.3 Cumplimiento (Fulfillment) de la Intención utilizando la función Lambda.
 
-### 2.3 Cumplimiento (Fulfillment) de la Intención.
-### 2.4 Pruebas de Bot agendando.
+Antes de continuar, asegúrese de haber realizado los pasos anteriores y confirmar que todo funciona correctamente (pruebas del Bot de Lex y pruebas de la función Lambda). Ahora lo que haremos será enganchar nuestro Bot con la función al momento del Fulfillment del intent, para eso vamos a la Consola de Lex y editamos el intent.
 
-### 2.5 Agregar la interfaz web (front-end)
+### [Paso a Paso integrar con la Funcion Lambda ➡️ ](README_Step_by_Step_Integracion_Lambda.md)
+<br/><br/>
 
-### 2.6 Utilizando Whatsapp
-### 2.6.1 Crear una cuenta gratuita de Twilio
-### 2.6.2 Twilio account SID y AUTH Token
-### 2.6.3 Lex endopoint url de Twilio channel
-### 2.6.5 Pruebas end to end.
+## 2.5 Agregar la interfaz web (front end opcional)
+
+Nuestro Bot de agendamientos ya está listo y funcionando completamente, pero no cuenta con una interfaz web que permita interactuar directamente con el. En este paso opcional podemos generar una UI (user interface).
+
+### [Paso a Paso Web UI ➡️ ](README_Step_by_Step_Web.md)
+<br/><br/>
+
+## 2.6 Utilizando Nuestro Bot con Whatsapp
+
+### [Paso a Paso integrar Whatsapp ➡️ ](README_Step_by_Step_Integracion_Whatsapp.md)
+<br/><br/>
 
 ### 2.7 Análisis de Sentimiento (opcional)
 
