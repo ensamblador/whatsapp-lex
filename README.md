@@ -19,7 +19,7 @@ Además vamos a generar una cuenta Twilio y un Bot de Amazon Lex para recibir la
 ___
 <br>
 
-# Paso 1: Backend de Agendamiento
+# Paso 1: Bot y Backend de Agendamiento 
 ---
 <br>
 

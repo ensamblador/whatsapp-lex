@@ -109,14 +109,14 @@ Acá vamos a combinar nuestro Bot con la plataforma de Mensajería WhatsAspp. Pa
 
 Nuestro bot tiene las capacidades de recibir voz, pero qué pasa cuando enviamos una nota de voz?
 
-### [Uso de notas de voz de Whatsapp ➡️ ](README_Step_by_Step_Integracion_Whatsapp_Voz.md)
+### [Uso de notas de voz de Whatsapp ➡️ ](README_Step_by_Step_Integracion_Whatsapp_voz.md)
 <br/><br/>
-
-
-## Opcional: Análisis de Sentimiento (opcional)
-
-## Opcional: Visualización de los datos (opcional)
 
 # 3 Limpieza
 
-## 4 Material adicional
+TO DO
+
+# 4 Material adicional
+
+TO DO
+
