@@ -5,6 +5,8 @@ Antes de continuar, asegúrese de haber realizado los pasos anteriores y confirm
 ## 1. Crear una cuenta gratuita de Twilio
 
 Cree una cuenta de twilio gratuita para acceder al Sandbox de Whatsapp
+
+
 [![](http://img.youtube.com/vi/O2PB6o2E8aA/0.jpg)](http://www.youtube.com/watch?v=O2PB6o2E8aA "Whatsapp Sandbox")
 
 
