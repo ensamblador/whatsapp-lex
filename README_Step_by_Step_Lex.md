@@ -20,7 +20,7 @@ Para el proyecto utilizaremos el template de Schedule Appointment. En **Bot Name
 * **COPPA** No
 
 
-<img src="img/lex_console_2.jpg" width="600" style="margin:0 auto;">
+<img src="img/lex_console_2.jpg" width="600">
 
 
 Una vez configurado hacemos click en **Create** 
@@ -36,7 +36,7 @@ Los **Slot Types** son variables customizadas asociadas a la intención (por eje
 **Utterances** son las conversaciones que pueden activar la intención. Estas frases ya podrían incorporar slots dentro del mensaje que envía el usuario.
 
 
-<img src="img/lex_console_3.jpg" width="800" align="middle">
+<img src="img/lex_console_3.jpg" width="800">
 
 
 **Intent Slots** los slots que debe llenar el Bot para la completar la Intención. Pueden ser custom o Nativos. El prompt es la frase con la que el bot consulta el el valor del slot (_Para cuando quiere agendar?_ debería responder el slot _Date_).
@@ -44,40 +44,53 @@ Los **Slot Types** son variables customizadas asociadas a la intención (por eje
 Vemos que el template nos muestra un Intent por defecto llamado `MakeAppointment_esUS` vamos a editarlo (click en el botón edit al lado del nombre) y realizamos los siguientes cambios.
 
 1. **En fulfillment indicamos que responda los parámetros al cliente.**
-!["lex_console_4"](img/lex_console_4.jpg)
+<img src="img/lex_console_4.jpg" width="600">
+
 <br><br><br>
 1. **En `Sample Utterances` agregaremos un par de frases que incluyan otros slots**
 De esta forma permitimos que en un solo mensaje podamos capturar las tres variables (los slots se definen en la frase usando paréntesis `{}`)
-!["lex_console_4"](img/lex_console_5.jpg)
+<img src="img/lex_console_5.jpg" width="600">
+
 <br><br><br>
 
 1. **En el Slot de de `AppointmentType`vamos a agregar un hint para que el usuario conozca las opciones de Citas**
-!["lex_console_4"](img/lex_console_14.jpg)
-Agregamos en el prompt "(Tratamiento de condicto, Control, Limpieza)"
-!["lex_console_4"](img/lex_console_13.jpg)
+<img src="img/lex_console_14.jpg" width="600">
+
+    Agregamos en el prompt "(Tratamiento de condicto, Control, Limpieza)"
+    <img src="img/lex_console_13.jpg" width="400">
+
 <br><br><br>
 1. **Después de hacer estas modificaciones Guardamos nuestro Intent.**
-!["lex_console_4"](img/lex_console_6.jpg)
+
+    <img src="img/lex_console_6.jpg" width="500">
+
 
 <br><br><br>
 1. **Creamos Otro Intent que nos salude ante cualquier mensaje diferente y oriente al usuario**
 * En `Intents` le damos al signo (+) y luego `Create Intent`
-!["lex_console_4"](img/lex_console_7.jpg)
+
+    <img src="img/lex_console_7.jpg" width="400">
+
 <br><br><br>
 * Le damos un nombre y lo agregamos al bot.
-!["lex_console_4"](img/lex_console_8.jpg)
+
+    <img src="img/lex_console_8.jpg" width="400">
+
 <br><br><br>
 * Para que este intent se active vamos a configurar las siguientes frases en `Utterances`
-!["lex_console_4"](img/lex_console_9.jpg)
+<img src="img/lex_console_9.jpg" width="500">
+
 <br><br><br>
 * Luego agregamos la respuesta que va a orientar a nuestro usuario a agendar.
 
     **_Hola. Yo te ayudaré a agendar una hora disponible de Dentista si me dices: "agendar una cita"_**
 
-    !["lex_console_4"](img/lex_console_10.jpg)
+    <img src="img/lex_console_10.jpg" width="600">
+
 
 * Finalmente guardamos el nuevo intent y le damos al boton **Build**
-!["lex_console_4"](img/lex_console_11.jpg)
+<img src="img/lex_console_11.jpg" width="600">
+
 
 Listo! nuestro bot ya puede saludar y ahora vamos a probarlo en la consola.
 
@@ -86,7 +99,8 @@ ___
 
 Una vez que el bot está armado podemos acceder a la consola de pruebas, al lado derecho. Haga unas pruebas a ver si está respondiendo bien, en caso contrario revise los pasos anteriores nuevamente.
 
-!["lex_console_4"](img/lex_console_12.jpg)
+<img src="img/lex_console_12.jpg" width="600">
+
 
 Cuando el Estado es `ReadyForFulFullment` significa que todos los Slots están completos y podemos proceder al agendamiento (no hemos llegado a eso aún 😎)
 
