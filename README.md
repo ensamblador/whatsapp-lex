@@ -2,7 +2,7 @@
 
 
 
-!["diagrama"](whatsapp-lex-appointments.png)
+!["diagrama"](img/whatsapp_lex.jpg)
 
 ---
 
