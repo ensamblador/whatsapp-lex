@@ -1,4 +1,4 @@
-# Chatobot Amazon Lex y Whatsapp (Twilio): Guía paso a paso
+# Chatbot Amazon Lex y Whatsapp (Twilio): Guía paso a paso
 
 # 1. Introduccion 
 
