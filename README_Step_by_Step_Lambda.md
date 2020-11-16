@@ -125,9 +125,18 @@ def save_appointment(event):
     request_time = datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S")
     request_attributes = event["requestAttributes"]
 
+    #si es desde el sitio web
     if request_attributes is None:
        request_attributes =  {"x-amz-lex:twilio-target-phone-number": "none :console"}
        event['userId'] = 'console:'+event['userId']
+    
+    
+    #si es desde facebook messenger
+    if "x-amz-lex:twilio-target-phone-number" not in request_attributes:
+        print (request_attributes)
+        request_attributes[ "x-amz-lex:twilio-target-phone-number"] = "none: messenger"
+        event['userId'] = 'console:'+event['userId']
+
         
     user_id = event["userId"].split(":")
     target_id = request_attributes["x-amz-lex:twilio-target-phone-number"].split(":")

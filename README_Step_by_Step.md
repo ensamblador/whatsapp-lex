@@ -6,14 +6,14 @@ TO DO
 
 ## 1.1 Objetivo
 
-En este Workshop vamos a implemntar un Chabot usando Amazon Lex y lo vamos a integrar con la plataforma de mensajería instantánea WhatsApp. Esta integración se realizará a través de la plataforma (twilio) que nos permitirá recibir mensajes directamente desde la aplicación whatsapp (web o smartphone).
+En este Workshop vamos a implementar un Chatbot utilizando el servicio Amazon Lex y lo integraremos con la plataforma de mensajería instantánea WhatsApp. Esta integración se realizará a través de la plataforma (twilio) que nos permitirá recibir mensajes directamente desde la aplicación whatsapp (web o smartphone). Como pasos opcionales podemos integrar nuestro chatbot con Facebook Messenger o en nuestro propio sitio web.
 
 Se trata de un caso de uso para el agendamiento de horas al dentista, no obstante puede extenderse para cualquier tipo de interacción con un asistente virtual, por ejemplo preguntas y respuestas frecuentes, información del estado de un caso de soporte, solicitud de información personalizada, ejecución de un procesamiento automático, etc.
 
 
 ## 1.2 Arquitectura
 
-Arquitectura está compuesta por un Chat Bot Lex configurado para interactuar con el usuario y resolver la información necesaria para el agendamiento (motivo,  hora y día). Una vez resuelta la información, se envía la solicitud a una función Lambda que procesa el requerimiento insertando la cita en la tabla DynamoDB (para este ejercicio no existe ninguna validación de negocio en la función Lambda, sólo inserta la cita).
+Arquitectura está compuesta por un Bot Lex configurado para interactuar con el usuario y resolver la información necesaria para el agendamiento (motivo,  hora y día). Una vez resuelta la información, se envía la solicitud a una función Lambda que procesa el requerimiento insertando la cita en la tabla DynamoDB (para este ejercicio no existe ninguna validación de negocio en la función Lambda, sólo inserta la cita).
 
 Hacia el cliente la interacción se realiza a través de una integración con Twilio que permite enviar y recibir mensajes de WhatsApp hacia el Chatbot.
 
@@ -105,11 +105,16 @@ Acá vamos a combinar nuestro Bot con la plataforma de Mensajería WhatsAspp. Pa
 ### [Paso a Paso integrar Whatsapp ➡️ ](README_Step_by_Step_Integracion_Whatsapp.md)
 <br/><br/>
 
-## _Opcional: Interactuando con notas de voz_
+## _Opcional: Interactuando con notas de voz de Whatsapp_
 
 Nuestro bot tiene las capacidades de recibir voz, pero qué pasa cuando enviamos una nota de voz?
 
 ### [Uso de notas de voz de Whatsapp ➡️ ](README_Step_by_Step_Integracion_Whatsapp_voz.md)
+<br/><br/>
+
+## _Opcional: Integración con Facebook Messenger_
+Siga estos pasos si quiere integrar el Bot a un chat de Messenger y así ofrecer la misma experiencia en esa plataforma de mensajería.
+### [Uso del Bot con una aplicación de Facabook Messenger ➡️ ](README_Step_by_Step_Integracion_Messenger.md)
 <br/><br/>
 
 # 3 Limpieza
