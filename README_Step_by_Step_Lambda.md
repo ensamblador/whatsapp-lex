@@ -123,7 +123,7 @@ def make_appointment(appointmen_info):
 # Guardado de la cita en la tabla DynamoDB
 def save_appointment(event):
     request_time = datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S")
-    request_attributes = event["requestAttributes"]
+    request_attributes = request_attributes = event["requestAttributes"] if "requestAttributes" in event else None 
 
     #si es desde el sitio web
     if request_attributes is None:
@@ -179,7 +179,7 @@ def save_item_ddb(item):
     return response
 
 # Punto de entrada de la Función, el objeto evento trae los datos del fulfillment
-def main(event, context):
+def lambda_handler(event, context):
     print(event)
     appointment_info = save_appointment(event)
     respon  =dispatch(appointment_info, event['sessionAttributes'])
