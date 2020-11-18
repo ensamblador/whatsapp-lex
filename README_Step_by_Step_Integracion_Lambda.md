@@ -24,5 +24,4 @@ Por otro lado si va a revisar la Consola de DynamoDB y encontrará un nuevo regi
 
 Hemos terminado la integración con Lambda ahora podamos continuar con el proyecto.
 
-
-### **[Volver al proyecto ↩️ ](README_Step_by_Step.md)**
+### **[Volver al proyecto ↩️ ](README.md)**

@@ -38,4 +38,4 @@ La integración está lista, ahora podemos probar el bot.
 <img src="img/facebook_4.jpg" width="500">
 
 
-### **[Volver al proyecto ↩️ ](README_Step_by_Step.md)**
+### **[Volver al proyecto ↩️ ](README.md)**

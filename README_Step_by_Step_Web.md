@@ -37,4 +37,4 @@ Acá también podemos utilizar el audio del micrófono para comunicarnos, el cha
 
 La interfaz web ya está completa, incluso es posible itegrarla en un sitio web accediendo al snippet url de los output de cloudformation.
 
-### **[Volver al proyecto ↩️ ](README_Step_by_Step.md)**
+### **[Volver al proyecto ↩️ ](README.md)**

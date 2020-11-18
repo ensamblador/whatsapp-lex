@@ -16,4 +16,4 @@ Si quiere profundizar acerca de las claves de partición puede consultar en la [
 
 
 
-### **[Volver al proyecto ↩️ ](README_Step_by_Step.md#22-la-base-de-datos-de-agendas)**
+### **[Volver al proyecto ↩️ ](README.md)**

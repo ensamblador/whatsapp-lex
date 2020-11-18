@@ -61,5 +61,4 @@ También podemos ver que un registro se ha insertado en la base de datos, ahora 
 !["lex 1"](img/dynamo_console_4.jpg)
 
 
-
-### **[Volver al proyecto ↩️ ](README_Step_by_Step.md)**
+### **[Volver al proyecto ↩️ ](README.md)**

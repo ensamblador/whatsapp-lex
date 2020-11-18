@@ -107,4 +107,4 @@ Cuando el Estado es `ReadyForFulFullment` significa que todos los Slots están c
 <br/><br/>
 
 
-### **[Volver al proyecto ↩️ ](README_Step_by_Step.md#21-amazon-lex-chatboten-español)**
+### **[Volver al proyecto ↩️ ](README.md)**
