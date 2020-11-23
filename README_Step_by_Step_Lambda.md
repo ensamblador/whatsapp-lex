@@ -2,7 +2,7 @@
 
 Con AWS Lambda, puede ejecutar código sin aprovisionar ni administrar servidores. Solo tiene que cargar el código y Lambda se encargará de todo lo necesario para ejecutar y escalar el código con alta disponibilidad. Esta función Lambda será la encargada de tomar el `Fulfillment`de Lex y convertirlo en una cita en la base de datos.
 
-### 1. Primero vamos a la [consola de AWS Lambda](https://console.aws.amazon.com/lambda) y creamos una nueva función.
+### 1. Primero vamos a la [consola de AWS Lambda](https://console.aws.amazon.com/lambda) y creamos una nueva función (utilice la misma región que el Bot Lex Us-east-1 Norte de Virginia).
 
 * Utilizamos **Crear desde cero**
 * Nombre de la funcion: **FulFillmentLambda**

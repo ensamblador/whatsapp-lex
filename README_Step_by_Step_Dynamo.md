@@ -4,7 +4,7 @@ Amazon DynamoDB es un servicio de base de datos NoSQL totalmente administrado qu
 
 * Nombre de la Tabla: **agendamientos**
 * Clave de Partición: **user_phone** tipo **String**
-* Clave de Ordebación: **request_time** tipo **String**
+* Clave de Ordenación: **request_time** tipo **String**
 * Configuración: **Configuración Predeterminada**
 
 

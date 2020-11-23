@@ -4,11 +4,13 @@ Antes de continuar, asegúrese de haber realizado los pasos anteriores y confirm
 
 ## 1. Crear una cuenta gratuita de Twilio
 
-Cree una cuenta de twilio gratuita para acceder al Sandbox de Whatsapp
+Cree una cuenta de twilio gratuita en https://www.twilio.com/try-twilio para acceder al Sandbox de Whatsapp
 
+<img src="img/twilio_0.jpg" width="500">
+
+Luego de generar la cuenta, active el sandbox para whatsapp como se muestra en la siguiente guía.
 
 [![](http://img.youtube.com/vi/O2PB6o2E8aA/0.jpg)](http://www.youtube.com/watch?v=O2PB6o2E8aA "Whatsapp Sandbox")
-
 
 Una vez activado el sandbox deberá enrolar usuarios enviando un mensaje personalizado a el número de whatsapp provisto por twilio.
 

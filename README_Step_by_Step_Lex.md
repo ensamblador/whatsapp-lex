@@ -4,8 +4,9 @@ Amazon Lex es un servicio para crear interfaces de conversación con voz y texto
 
 Para crear un nuevo Chatbot vamos a la Consola de Lex en AWS (https://console.aws.amazon.com/lex).
 
-Si no ve la consola de Amazon Lex, cambie a una las regiones soportadas 
-https://docs.aws.amazon.com/general/latest/gr/lex.html 
+
+### Utilice la región **us-east-1 (Norte de Virginia)**
+
 
 * Si es la primera vez que utiliza Lex en esta región haga click en **Get Started**.
 * Si ya cuenta con un bot, haga click en **Create** en el menú **Bots**
