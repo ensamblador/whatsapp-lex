@@ -8,7 +8,7 @@ Cree una cuenta de twilio gratuita en https://www.twilio.com/try-twilio para acc
 
 <img src="img/twilio_0.jpg" width="500">
 
-Luego de generar la cuenta, active el sandbox para whatsapp como se muestra en la siguiente guía.
+Luego de generar la cuenta, active el sandbox para whatsapp https://www.twilio.com/console/sms/whatsapp/learn  como se muestra en la siguiente guía.
 
 [![](http://img.youtube.com/vi/O2PB6o2E8aA/0.jpg)](http://www.youtube.com/watch?v=O2PB6o2E8aA "Whatsapp Sandbox")
 

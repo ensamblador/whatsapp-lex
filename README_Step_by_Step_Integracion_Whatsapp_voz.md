@@ -23,6 +23,9 @@ Seleccionamos **Crear Capa**
 * Tiempo de ejecución: **Python 3.6 y 3.7**
 * Archivo: **[twilio.zip](lambda/layers/twilio.zip)**
 
+_En caso de tener algún problema para descargar o subir el archivo utilice la alternativa archivo S3: s3://ensamblador-public-layers-us-east-1/twilio.zip_
+
+
 Luego click en **crear**
 
 <img src="img/Lambda_14a.jpg" width="500">
@@ -32,6 +35,10 @@ Para la capa ffmpeg es el mismo procedimiento
 * Nombre : **ffmpeg**
 * Tiempo de ejecución: **Python 3.6 y 3.7**
 * Archivo: **[ffmpeg.zip](lambda/layers/ffmpeg.zip)**
+
+_En caso de tener algún problema para descargar o subir el archivo utilice la alternativa archivo S3: s3://ensamblador-public-layers-us-east-1/ffmpeg.zip_
+
+
 
 Al final las capas deberán quedar así:
 
@@ -59,7 +66,19 @@ Las capas deberían quedar incorporadas en la función y ya las podemos utilizar
 
 ## 4. Codigo de la funcion 
 
-Copiar y pegar el código a continuación, se encuentra comentado para explicar lo que hace en cada funcion.
+Copiar y pegar el código a continuación, se encuentra comentado para explicar lo que hace en cada método.
+
+Recuerde reemplazar el nombre de su bot en esta línea
+
+# 👇
+```python
+# TO DO : Reemplace acá con el nombre de su Bot.
+BOT_NAME = 'ScheduleAppointment_Workshop_Demo'
+```
+
+
+Código completo de la función:
+
 
 ```python
 import json
@@ -82,6 +101,7 @@ local_source_audio = "{0}/downloaded".format(lambda_tmp_dir)
 output_file = "{0}/output.wav".format(lambda_tmp_dir)
 botAlias ='$LATEST'  #Nuestro BOT cambiar si le pusimos otro nombre
 
+# TO DO : Reemplace acá con el nombre de su Bot.
 BOT_NAME = 'ScheduleAppointment_Workshop_Demo'
 
 #Verificamos si estamos ejecutando en el ambiente Lambda o no
@@ -202,7 +222,7 @@ Esta función requiere los permisos para invocar el Bot. Para eso vamos a modifi
 
 Ya en la consola editamos la política y agreamos los siguientes permisos:
 * Servicio: **Lex**
-* Acciones: **GetSession, PostSession, PostText, PostContent** (las llamadas a la API que hacemos en la función)
+* Acciones: **GetSession, PutSession, PostText, PostContent** (las llamadas a la API que hacemos en la función)
 * Recurso: **Específico** Bot Alias
 <img src="img/IAM_3.jpg" width="800">
 Para definir el ARN utilizamos los datos de nuestro Bot (* para todas las versiones del bot)
