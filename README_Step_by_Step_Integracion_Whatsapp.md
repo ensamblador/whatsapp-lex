@@ -8,9 +8,20 @@ Cree una cuenta de twilio gratuita en https://www.twilio.com/try-twilio para acc
 
 <img src="img/twilio_0.jpg" width="500">
 
-Luego de generar la cuenta, active el sandbox para whatsapp https://www.twilio.com/console/sms/whatsapp/learn  como se muestra en la siguiente guía.
 
-[![](http://img.youtube.com/vi/O2PB6o2E8aA/0.jpg)](http://www.youtube.com/watch?v=O2PB6o2E8aA "Whatsapp Sandbox")
+
+
+**Activar Whatsapp Sandbox** 
+
+1. Una vez que tienes la cuenta gratuita en Twilio creada, va a el ícono con los 3 puntitos a la izquierda y selecciona Programmable Messaging.
+
+    <img src="img/Paso1.png" width="500">
+
+2. Ir a la opción Try it Out -> Try WhatsApp
+3. Tiene que agregar a sus contactos en el smartphone el número que indica Twilio en pantalla y enviar un mensaje desde su WhatsApp de acuerdo al código indicado en la pantalla (en la imagen para el caso caso decía "join darkness-question"). Una vez hecho esto debe seguir el resto de pasos para dejar pre configurado el ambiente. 
+
+    <img src="img/Paso2.png" width="500">
+
 
 Una vez activado el sandbox deberá enrolar usuarios enviando un mensaje personalizado a el número de whatsapp provisto por twilio.
 
